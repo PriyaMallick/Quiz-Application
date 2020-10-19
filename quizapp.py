@@ -50,6 +50,25 @@ def showresult(score):
     r3.destroy()
     r4.destroy()
 
+    limage=Label(root,background="#ffffff",border=0)
+    limage.pack()
+    limageresulttext=Label(root,font=("Consolas",20))
+    limageresulttext.pack(pady=(50,30))
+    if score>=20:
+        img=PhotoImage(file="excellent.png")
+        limage.config(image=img)
+        limage.image=img
+        limageresulttext.config(text="Superb!!!",background="#ffffff")
+    elif(score>=10 and score<20):
+        img = PhotoImage(file="okay.png")
+        limage.config(image=img)
+        limage.image = img
+        limageresulttext.config(text="Good Job!!!", background="#ffffff")
+    else:
+        img = PhotoImage(file="thumbsdown.png")
+        limage.config(image=img)
+        limage.image = img
+        limageresulttext.config(text="Better luck next time!!!", background="#ffffff")
 
 def calc():
     global indexes, user_answer, answerChoice
@@ -136,10 +155,10 @@ btnstart.pack()
 
 linstruction = Label(root, text="Read The Instructions And\nClick Start Once You Are Ready", background="#ffffff",
                      font=("Consolas", 14), justify="center")
-linstruction.pack(pady=(20, 40))
+linstruction.pack(pady=(20, 25))
 
 lrules = Label(root,
-               text="1. Quiz contains 5 questions.\n2. You will get 20 seconds to answer each questions\n3. Once you select an option, that will be the final answer.\n Note: Hence think before you select.",
+               text="1. Quiz contains 5 questions.\n2. Once you select an option, that will be the final answer.\n3. There are 4 options for each question.\n4. There is only 1 correct option.\n Note: Hence think before you select.",
                width=100, font=("Times", 14), background="yellow", foreground="black")
 lrules.pack()
 
